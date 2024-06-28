@@ -1,0 +1,28 @@
+@layer components {
+    .header-nav--container {
+        @apply flex items-center;
+    }
+
+    .mobile .header-nav--container {
+        justify-content: flex-end; // Align items to the right for mobile
+    }
+
+    .desktop .header-nav--container {
+        justify-content: center; // Align items to the center for non-mobile
+    }
+
+    .mobile-menu {
+        @apply lg:ml-3 inline-flex items-center p-2 text-white lg:hidden md:mr-auto;
+        margin-left: auto; // Move the hamburger menu icon to the rightmost edge
+    }
+
+    .header-nav--menu-container {
+        @apply z-20 absolute top-0 right-0 w-full bg-white md:relative md:flex md:bg-transparent hidden;
+        left: auto; // Add left: auto to override any left alignment
+        text-align: right; // Align text to the right within the container
+    }
+
+    .header-nav--menu-container.active {
+        @apply block;
+    }
+}

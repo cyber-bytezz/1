@@ -1,0 +1,114 @@
+@layer components {
+    .header {}
+
+    .header--container {
+        @apply relative flex items-center justify-between py-3 lg:justify-start;
+
+        &:after {
+            content: "";
+            margin-left: var(--page-padding-left);
+            margin-right: var(--page-padding-right);
+            position: absolute;
+            bottom: 0px;
+            left: 0px;
+            right: 0px;
+            height: 1px;
+            background: rgba(255, 255, 255, 0.08);
+        }
+    }
+
+    .header-logo--container {
+        @apply mr-1 lg:mr-1 flex items-center;
+    }
+
+    .header-nav {
+        @apply text-black/60;
+    }
+
+    .header-nav--container {}
+
+    .mobile-menu {
+        @apply lg:ml-3 inline-flex items-center p-2 text-white lg:hidden md:mr-auto;
+    }
+
+    .header-nav--menu-container {
+        @apply absolute left-0 w-full lg:relative lg:block lg:w-auto;
+    }
+
+    .header-nav--menu {
+        @apply my-3 flex flex-col gap-6 border border-gray-100 bg-gray-50 p-4 font-medium lg:my-0 lg:mt-0 lg:flex-row lg:border-0 lg:bg-transparent lg:p-0 lg:font-medium;
+    }
+
+    .header-nav--menu-item {}
+
+    .menu-item--link {
+        @apply block rounded py-2 pl-3 pr-4 transition-colors duration-300 md:bg-transparent md:p-0 lg:text-black md:hover:underline;
+
+        &.active {
+            @apply bg-primary-700 text-white text-black lg:bg-white;
+        }
+    }
+
+    .btn--secondary {
+        @apply text-sm py-1 px-2 hover:text-black-500 whitespace-nowrap;
+    }
+
+    @media (max-width: 768px) {
+        .header {
+            @apply bg-white bg-opacity-90 backdrop-blur-lg;
+        }
+
+        .btn--secondary {
+            @apply text-xs py-1 px-2;
+        }
+
+        .header--container {
+            @apply px-4 py-2;
+        }
+
+        .header-nav--menu {
+            @apply gap-4;
+        }
+    }
+
+    @layer components {
+        .header-nav--container {
+            @apply flex items-center justify-between; // Remove justify-end
+        }
+
+        .mobile-menu {
+            @apply lg:ml-3 inline-flex items-center p-2 text-white lg:hidden md:mr-auto;
+        }
+
+        .header-nav--menu-container {
+            @apply z-20 absolute top-0 right-0 w-full bg-white md:relative md:flex md:bg-transparent hidden;
+            left: auto; // Add left: auto to override any left alignment
+        }
+
+        .header-nav--menu-container.active {
+            @apply block;
+        }
+    }
+
+    .logo-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        /* Adjust the gap between logos */
+    }
+
+    .logo-container a {
+        display: flex;
+        align-items: center;
+    }
+
+    .logo-container a img {
+        max-width: 100%;
+        height: auto;
+    }
+
+
+
+}
